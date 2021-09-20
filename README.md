@@ -1,4 +1,4 @@
-# MakersBnB specification
+### MakersBnB specification
 
 We would like a web application that allows users to list spaces they have available, and to hire spaces for the night.
 
@@ -73,10 +73,7 @@ THURSDAY:
   * Morning: All work on CSS
 
 
-
-
-
-A suggestion from me, could be something like:
+TRELLO PLANNING FOR STANDUPS 
 Backlog: user stories (one per ticket) created from breaking down specifications
 To do: user stories you're aiming to complete within a sprint / day or two
 In progress: what are you currently working on?
@@ -85,8 +82,4 @@ Done: what's been merged?
 Blocked: which tickets are relying on another ticket to be completed before it can be continued?
 Resources: are there helpful resources the team should know about? It's an option to add columns that are used for knowledge sharing rather than just progress updates.
 
-
-
-
-
-
+### To set up the database
