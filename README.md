@@ -12,6 +12,7 @@ We would like a web application that allows users to list spaces they have avail
 7. Until a user has confirmed a booking request, that space can still be booked for that night.
 
 # User stories
+```
 As a user
 So that I can add new spaces
 I want to list a property
@@ -37,15 +38,14 @@ As a user
 So that double booking is avoided
 The property can not be booked if it is already booked
 
-
-
-TO WORK ON:
+In development:
 As part of the booking system
 So that I can still book a property which is not yet confirmed 
 I can book a property which is pending confirmation 
-
+```
 
 PLAN FOR WEEK:
+Independant Study for CSS 
 
 * MONDAY:
   * Domain Modelling
@@ -56,15 +56,20 @@ PLAN FOR WEEK:
 
 * TUESDAY:
   * One pair work on User class - sign up / log in / database User Table
+    ** Amanda and Lilly
   * One pair work on Space class - spaces / spaces/new / database Spaces Tables
+    ** David and Leah
 
 WEDNESDAY:
+(Process Workshop 2pm)
+  *
+
+THURSDAY:
   *
 
 
-
 * FRIDAY 
-  * work on CSS
+  * Morning: Work on CSS
 
 
 
