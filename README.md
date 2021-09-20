@@ -45,13 +45,15 @@ I can book a property which is pending confirmation
 ```
 
 PLAN FOR WEEK:
-Independant Study for CSS 
+- Independant Study for CSS 
+- Switch pairs daily
 
 * MONDAY:
+  * User Stories
+  * MVC model
   * Domain Modelling
   * CRC cards
-  * MVC / MVP planning
-  * User Stories
+  * MVP planning (deliver Wednesday)
   * File preparation
 
 * TUESDAY:
@@ -62,14 +64,13 @@ Independant Study for CSS
 
 WEDNESDAY:
 (Process Workshop 2pm)
-  *
+  * TBC
 
 THURSDAY:
-  *
-
+  * TBC
 
 * FRIDAY 
-  * Morning: Work on CSS
+  * Morning: All work on CSS
 
 
 
