@@ -1,8 +1,8 @@
-### MakersBnB specification
+# MakersBnB specification
 
 We would like a web application that allows users to list spaces they have available, and to hire spaces for the night.
 
-# Headline specifications
+### Headline specifications
 1. Any signed-up user can list a new space.
 2. Users can list multiple spaces.
 3. Users should be able to name their space, provide a short description of the space, and a price per night.
@@ -11,7 +11,7 @@ We would like a web application that allows users to list spaces they have avail
 6. Nights for which a space has already been booked should not be available for users to book that space.
 7. Until a user has confirmed a booking request, that space can still be booked for that night.
 
-# User stories
+### User stories
 ```
 As a user
 So that I can add new spaces
@@ -44,8 +44,8 @@ So that I can still book a property which is not yet confirmed
 I can book a property which is pending confirmation 
 ```
 
-PLAN FOR WEEK:
-- Independant Study for CSS 
+### PLAN FOR WEEK:
+- Independant study for CSS 
 - Switch pairs daily
 
 * MONDAY:
@@ -57,29 +57,17 @@ PLAN FOR WEEK:
   * File preparation
 
 * TUESDAY:
-  * One pair work on User class - sign up / log in / database User Table
-    ** Amanda and Lilly
-  * One pair work on Space class - spaces / spaces/new / database Spaces Tables
-    ** David and Leah
+  * One pair work on User class - sign up / log in / database User Table ** Amanda and Lilly
+  * One pair work on Space class - spaces / spaces/new / database Spaces Tables ** David and Leah
 
-WEDNESDAY:
-(Process Workshop 2pm)
+* WEDNESDAY: (Process Workshop 2pm)
   * TBC
 
-THURSDAY:
+* THURSDAY:
   * TBC
 
 * FRIDAY 
   * Morning: All work on CSS
 
-
-TRELLO PLANNING FOR STANDUPS 
-Backlog: user stories (one per ticket) created from breaking down specifications
-To do: user stories you're aiming to complete within a sprint / day or two
-In progress: what are you currently working on?
-In review: which tickets currently have pull requests open?
-Done: what's been merged?
-Blocked: which tickets are relying on another ticket to be completed before it can be continued?
-Resources: are there helpful resources the team should know about? It's an option to add columns that are used for knowledge sharing rather than just progress updates.
 
 ### To set up the database
