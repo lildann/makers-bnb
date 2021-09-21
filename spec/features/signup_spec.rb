@@ -8,6 +8,5 @@ feature 'signup' do
     fill_in 'password', with: 'test_password'
     click_button 'Submit'
     expect(page).to have_content 'Welcome'
-    expect(page.current_path).to eq '/spaces'
   end
 end

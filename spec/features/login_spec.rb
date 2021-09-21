@@ -2,7 +2,7 @@ require 'spec_helper'
 
 require 'spec_helper'
 
-feature 'login' do
+xfeature 'login' do
   scenario 'user can login' do
     visit('/login')
     fill_in 'name', with: 'John'

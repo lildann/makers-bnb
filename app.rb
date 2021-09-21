@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require_relative './lib/user'
 
 class Bnb < Sinatra::Base
   configure :development do
@@ -11,8 +12,9 @@ class Bnb < Sinatra::Base
     erb :index
   end
 
-  post '/' do
-    #save the login information
+  post '/users' do
+    User.create(name: params[:name], email: params[:email], password: params[:password])
+    session[:user_id] = user.id
     redirect('/spaces')
   end
 
@@ -21,14 +23,11 @@ class Bnb < Sinatra::Base
   end
 
   post '/login' do
-    @name = params[:name]
-    #instance variable not interpolating to spaces.erb view
-    p params
     redirect('/spaces')
   end
 
   get '/spaces' do
-    @name = session[:name]
+    @user = User.find(session[:user_id])
     erb :spaces
   end
 
