@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/lillydaniell/Projects/5_makers/makers-bnb/spec/features/login_spec.rb": {
+      "/Users/amandavuong/Dropbox/projects/week5/makers-bnb/spec/features/login_spec.rb": {
         "lines": [
           1,
           null,
@@ -22,7 +22,7 @@
           null
         ]
       },
-      "/Users/lillydaniell/Projects/5_makers/makers-bnb/spec/features/signup_spec.rb": {
+      "/Users/amandavuong/Dropbox/projects/week5/makers-bnb/spec/features/signup_spec.rb": {
         "lines": [
           1,
           null,
@@ -38,7 +38,7 @@
           null
         ]
       },
-      "/Users/lillydaniell/Projects/5_makers/makers-bnb/spec/units/user_spec.rb": {
+      "/Users/amandavuong/Dropbox/projects/week5/makers-bnb/spec/units/user_spec.rb": {
         "lines": [
           1,
           1,
@@ -47,20 +47,23 @@
           1,
           1,
           1,
+          1,
+          1,
+          1,
+          0,
+          0,
           0,
           null,
-          0,
-          0,
-          0,
-          0,
-          0,
+          1,
+          1,
+          1,
           null,
           null,
           null,
           1,
           1,
           1,
-          0,
+          1,
           null,
           0,
           0,
@@ -69,31 +72,29 @@
           null,
           1,
           1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
           null,
           null,
           null
         ]
       },
-      "/Users/lillydaniell/Projects/5_makers/makers-bnb/spec/database_helpers.rb": {
+      "/Users/amandavuong/Dropbox/projects/week5/makers-bnb/spec/database_helpers.rb": {
         "lines": [
           1,
           null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           1,
-          0,
-          0,
+          1,
+          1,
           null
         ]
       }
     },
-    "timestamp": 1632232216
+    "timestamp": 1632239585
   }
 }
