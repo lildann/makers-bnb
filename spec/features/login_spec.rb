@@ -1,5 +1,7 @@
 require 'spec_helper'
 
+require 'spec_helper'
+
 feature 'login' do
   scenario 'user can login' do
     visit('/login')
