@@ -10,5 +10,9 @@ class Bnb < Sinatra::Base
     'Hello World'
   end
 
+  post '/login' do
+    erb :('')
+  end
+
   run! if app_file == $0
 end
