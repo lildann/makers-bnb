@@ -1,7 +1,24 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/amandavuong/Dropbox/projects/week5/makers-bnb/spec/features/login_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      }
     },
-    "timestamp": 1632167901
+    "timestamp": 1632220418
   }
 }

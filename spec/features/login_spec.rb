@@ -7,7 +7,7 @@ feature 'login' do
     fill_in 'email', with: 'test@email.com'
     fill_in 'password', with: 'test_password'
     click_button 'Submit'
-    expect(page).to have_content 'Welcome, John'
+    expect(page).to have_content 'Welcome'
     expect(page.current_path).to eq '/spaces'
   end
 end
