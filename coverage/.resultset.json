@@ -1,7 +1,26 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/amandavuong/Dropbox/projects/week5/makers-bnb/spec/features/login_spec.rb": {
+      "/Users/lillydaniell/Projects/5_makers/makers-bnb/spec/features/login_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/lillydaniell/Projects/5_makers/makers-bnb/spec/features/signup_spec.rb": {
         "lines": [
           1,
           null,
@@ -17,8 +36,61 @@
           null,
           null
         ]
+      },
+      "/Users/lillydaniell/Projects/5_makers/makers-bnb/spec/units/user_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/lillydaniell/Projects/5_makers/makers-bnb/lib/user.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null,
+          1,
+          0,
+          0,
+          0,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          0,
+          null,
+          1,
+          0,
+          null,
+          null,
+          null
+        ]
       }
     },
-    "timestamp": 1632220418
+    "timestamp": 1632225884
   }
 }

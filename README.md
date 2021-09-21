@@ -70,4 +70,24 @@ I can book a property which is pending confirmation
   * Morning: All work on CSS
 
 
-### To set up the database
+Instructions for Database Setup and Test Database Setup
+----
+* Connect to psql
+* Create the two databases using the psql command: 
+```
+CREATE DATABASE bnb;
+CREATE DATABASE bnb_test;
+```
+* Connect to each database using the pqsl command 
+```
+\c bnb;
+\c bnb_test;
+```
+* To setup the approriate tables, run the SQL script saved in the `db/migrations` folder in the given order (file 01_create_bookmarks_table.sql)
+
+
+### To run the Bookmark Manager app:
+
+```
+rackup -p 3000
+```

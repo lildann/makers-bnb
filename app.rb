@@ -8,7 +8,12 @@ class Bnb < Sinatra::Base
   enable :sessions
 
   get '/' do
-    'Hello World'
+    erb :index
+  end
+
+  post '/' do
+    #save the login information
+    redirect('/spaces')
   end
 
   get '/login' do
@@ -17,11 +22,13 @@ class Bnb < Sinatra::Base
 
   post '/login' do
     @name = params[:name]
+    #instance variable not interpolating to spaces.erb view
     p params
     redirect('/spaces')
   end
 
   get '/spaces' do
+    @name = session[:name]
     erb :spaces
   end
 
