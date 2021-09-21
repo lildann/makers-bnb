@@ -7,7 +7,7 @@ describe 'spaces' do
     let(:price_per_night) {100}
 
     it '.create' do
-        connection = PG.connect(dbname: 'bnbapp', user: 'postgres', password: 'password')
+        connection = PG.connect(dbname: 'bnb', user: 'postgres', password: 'password')
         connection.exec("INSERT INTO spaces (space_name, space_description, price_per_night) VALUES ('#{name}', '#{description}', '#{price_per_night}');")
 
         Spaces.create(name: name, description: description, price_per_night: price_per_night)

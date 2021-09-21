@@ -20,3 +20,12 @@ CREATE TABLE spaces (
 );
 
 INSERT INTO spaces (space_name, space_description, price_per_night) VALUES ('A new Space', 'this is the description', '100');
+
+ALTER DATABASE bnbapp RENAME TO bnb;
+
+SELECT
+    pg_terminate_backend (pid)
+FROM
+    pg_stat_activity
+WHERE
+    datname = 'bnbapp';

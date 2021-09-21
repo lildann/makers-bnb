@@ -8,7 +8,6 @@ class Bnb < Sinatra::Base
   end
 
   get '/' do
-    'Hello World'
   end
 
   get '/spaces' do
