@@ -1,7 +1,26 @@
 {
   "RSpec": {
     "coverage": {
+      "C:/Users/David/Desktop/git_makers/makers-bnb/spec/features/creating_spaces_spec.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null
+        ]
+      }
     },
-    "timestamp": 1632167901
+    "timestamp": 1632217595
   }
 }
