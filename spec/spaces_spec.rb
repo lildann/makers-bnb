@@ -2,18 +2,23 @@ require 'spaces'
 
 describe 'spaces' do
 
+    let(:name) {"this is the name"}
+    let(:description) {"this is the description"}
+    let(:price_per_night) {100}
+
     it '.create' do
         connection = PG.connect(dbname: 'bnbapp', user: 'postgres', password: 'password')
-        connection.exec("INSERT INTO spaces (space_name, space_description, price_per_night) VALUES ('A new Space', 'this is the description', '100');")
+        connection.exec("INSERT INTO spaces (space_name, space_description, price_per_night) VALUES ('#{name}', '#{description}', '#{price_per_night}');")
 
-        Spaces.create((name,description,price_per_night)
+        Spaces.create(name: name, description: description, price_per_night: price_per_night)
         result = Spaces.all
-        expect(result[0]).to include "this is the description"
+        expect(result[0]).to include description
     end
 
     it ".all" do
         result = Spaces.all
         expect(result[0]).to include "this is the description"
     end
+
 end
 

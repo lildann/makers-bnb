@@ -5,7 +5,8 @@ class Spaces
 
     def self.create(name:, description:, price_per_night:)
         connection = PG.connect(dbname: 'bnbapp', user: 'postgres', password: 'password')
-        connection.exec("INSERT INTO spaces (space_name, space_description, price_per_night) VALUES ('#{name}', '#{description}', '#{price_per_night}');")
+        new_space = connection.exec("INSERT INTO spaces (space_name, space_description, price_per_night) VALUES ('#{name}', '#{description}', '#{price_per_night}') RETURNING spaces_id;")
+        new_space.values[0]
     end
 
     def self.all
