@@ -8,6 +8,7 @@ ruby '2.7.3'
 
 gem 'sinatra'
 gem 'sinatra-contrib'
+gem 'sinatra-flash'
 gem 'sinatra-activerecord'
 gem 'rake'
 gem 'pg'

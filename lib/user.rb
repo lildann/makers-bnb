@@ -17,7 +17,10 @@ class User
     else
       connection = PG.connect(dbname: 'bnb')
     end
-    result = connection.exec_params("INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING id, name, email;", [name, email, encrypted_password])
+    result = connection.exec_params(
+      "INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING id, name, email;",
+       [name, email, encrypted_password]
+      )
     User.new(
       id: result[0]['id'], 
       name: result[0]['name'], 
@@ -47,10 +50,15 @@ class User
     else
       connection = PG.connect(dbname: 'bnb')
     end
-    result = connection.exec_params("SELECT * FROM users WHERE email = $1;", [email])
+    result = connection.exec_params(
+      "SELECT * FROM users WHERE email = $1;", [email]
+    )
+    return unless result.any?
+    return unless BCrypt::Password.new(result[0]['password']) == password
     User.new(
       id: result[0]['id'], 
       name: result[0]['name'], 
-      email: result[0]['email'])
+      email: result[0]['email']
+    )
   end
 end
