@@ -10,7 +10,6 @@ describe User do
       expect(user.id).to eq persisted_data.first['id']
       expect(user.name).to eq 'John'
       expect(user.email).to eq 'test@email.com'
-      expect(user.password).to eq 'test_password'
     end
     it 'hashes the password using BCrypt' do
       expect(BCrypt::Password).to receive(:create).with('test-password')
@@ -21,7 +20,7 @@ describe User do
   context '#find' do
     it 'finds a user by ID' do
       user = User.create(name: 'John', email: 'test@email.com', password: 'test-password')
-      result = User.find(id: user)
+      result = User.find(id: user.id)
   
       expect(result.id).to eq user.id
       expect(result.name).to eq user.name
@@ -29,7 +28,7 @@ describe User do
     end
 
     it 'returns nil if there is no ID given' do
-      expect(User.find(nil)).to eq nil
+      expect(User.find(id: nil)).to eq nil
     end
   end
 end

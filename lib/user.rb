@@ -1,6 +1,5 @@
 require 'pg'
 require 'bcrypt'
-require_relative './database_connection'
 
 class User
   attr_reader :id,:name, :email
@@ -13,7 +12,12 @@ class User
 
   def self.create(name:, email:, password:)
     encrypted_password = BCrypt::Password.create(password)
-    result = DatabaseConnection.query("INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING id, name, email;", [name, email, password])
+    if ENV['ENVIRONMENT'] == "test"
+      connection = PG.connect(dbname: 'bnb_test')
+    else
+      connection = PG.connect(dbname: 'bnb')
+    end
+    result = result = connection.exec_params("INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING id, name, email;", [name, email, password])
     User.new(
       id: result[0]['id'], 
       name: result[0]['name'], 
@@ -22,7 +26,12 @@ class User
 
   def self.find(id:)
     return nil unless id
-    result = DatabaseConnection.query(
+    if ENV['ENVIRONMENT'] == "test"
+      connection = PG.connect(dbname: 'bnb_test')
+    else
+      connection = PG.connect(dbname: 'bnb')
+    end
+    result = result = connection.exec_params(
       "SELECT * FROM users WHERE id = $1", [id]
     )
     User.new(
