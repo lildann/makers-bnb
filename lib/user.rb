@@ -17,7 +17,7 @@ class User
     else
       connection = PG.connect(dbname: 'bnb')
     end
-    result = result = connection.exec_params("INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING id, name, email;", [name, email, password])
+    result = result = connection.exec_params("INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING id, name, email;", [name, email, encrypted_password])
     User.new(
       id: result[0]['id'], 
       name: result[0]['name'], 

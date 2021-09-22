@@ -13,7 +13,7 @@ describe User do
     end
     it 'hashes the password using BCrypt' do
       expect(BCrypt::Password).to receive(:create).with('test-password')
-      User.create(name: 'John', email: 'test@email.com', password: 'test-password')
+      user = User.create(name: 'John', email: 'test@email.com', password: 'test-password')
     end
   end
 

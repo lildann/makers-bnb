@@ -1,6 +1,5 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
-require_relative './database_connection_setup.rb'
 require_relative './lib/user'
 
 class Bnb < Sinatra::Base
