@@ -62,4 +62,5 @@ TRUNCATE spaces RESTART IDENTITY;
 ALTER TABLE bookings
   RENAME TO available_dates;
 
-ALTER TABLE table_name RENAME column_name TO new_column_name;
+ALTER TABLE bookings RENAME available_from TO booking_from;
+ALTER TABLE bookings RENAME available_to TO booking_to;

@@ -11,14 +11,14 @@ class Bookings
     # end
 
     connection = PG.connect(dbname:'bnb_test', user:'postgres', password:'password')
-    result = connection.exec("SELECT space_name, price_per_night, available_from, available_to FROM bookings INNER JOIN spaces ON (spaces.spaces_id = bookings.spaces_id);")
+    result = connection.exec("SELECT space_name, price_per_night, available_from, available_to FROM available_dates INNER JOIN spaces ON (spaces.spaces_id = available_dates.spaces_id);")
     #connection.exec ("INSERT INTO bookings (spaces_id, available_from, available_to) VALUES ('1', '10/09/2021', '15/09/2021');")
     result.values
   end
 
   def self.make_booking(space_id:, available_from:, available_to:)
     connection = PG.connect(dbname:'bnb_test', user:'postgres', password:'password')
-    result = connection.exec ("INSERT INTO bookings (spaces_id, available_from, available_to) VALUES ('#{space_id}', '#{available_from}', '#{available_to}') RETURNING available_from, available_to;")
+    result = connection.exec ("INSERT INTO bookings (spaces_id, booking_from, booking_to) VALUES ('#{space_id}', '#{available_from}', '#{available_to}') RETURNING booking_from, booking_to;")
     #@from_date = result
     #@from_date = result[0]
     # from the database, any available spaces

@@ -19,14 +19,14 @@ class Spaces
     end
 
     def self.all
-        if ENV['ENVIRONMENT'] == "test"
-            connection = PG.connect(dbname:'bnb_test', user:'postgres', password:'password')
-        else
-            connection = PG.connect(dbname:'bnb', user:'postgres', password:'password')
-        end
+        # if ENV['RACK_ENV'] == "test"
+        #     connection = PG.connect(dbname:'bnb_test', user:'postgres', password:'password')
+        # else
+        #     connection = PG.connect(dbname:'bnb', user:'postgres', password:'password')
+        # end
 
-        #connection = PG.connect(dbname: 'bnb', user: 'postgres', password: 'password')
-        result = connection.exec("SELECT * FROM spaces;")
+        connection = PG.connect(dbname: 'bnb_test', user: 'postgres', password: 'password')
+        result = connection.exec("SELECT space_name, space_description, price_per_night FROM spaces;")
 
         result.values
     end
