@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-feature 'signup' do
+feature 'registration' do
   scenario 'user can signup' do
     visit('/')
     fill_in 'name', with: 'John'

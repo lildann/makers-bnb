@@ -31,4 +31,14 @@ describe User do
       expect(User.find(id: nil)).to eq nil
     end
   end
+
+  context '#authenticate' do
+    it 'returns the user credentials if the user exists in the databse' do
+      user = User.create(name: 'John', email: 'test@email.com', password: 'test-password')
+      authenticate_user = User.authenticate(email: 'test@email.com', password: 'test-password')
+      
+      expect(user.id).to eq authenticate_user.id
+    end
+  end
+
 end
