@@ -83,10 +83,10 @@ CREATE DATABASE bnb_test;
 \c bnb;
 \c bnb_test;
 ```
-* To setup the approriate tables, run the SQL script saved in the `db/migrations` folder in the given order (file 01_create_bookmarks_table.sql)
+* To setup the approriate tables, run the SQL script saved in the `db/migrations` folder in the given order (file 01_create_users_table.sql)
 
 
-### To run the Bookmark Manager app:
+### To run the Bnb app:
 
 ```
 rackup -p 3000
