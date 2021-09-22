@@ -44,31 +44,6 @@ So that I can still book a property which is not yet confirmed
 I can book a property which is pending confirmation 
 ```
 
-### PLAN FOR WEEK:
-- Independant study for CSS 
-- Switch pairs daily
-
-* MONDAY:
-  * User Stories
-  * MVC model
-  * Domain Modelling
-  * CRC cards
-  * MVP planning (deliver Wednesday)
-  * File preparation
-
-* TUESDAY:
-  * One pair work on User class - sign up / log in / database User Table ** Amanda and Lilly
-  * One pair work on Space class - spaces / spaces/new / database Spaces Tables ** David and Leah
-
-* WEDNESDAY: (Process Workshop 2pm)
-  * TBC
-
-* THURSDAY:
-  * TBC
-
-* FRIDAY 
-  * Morning: All work on CSS
-
 
 Instructions for Database Setup and Test Database Setup
 ----
