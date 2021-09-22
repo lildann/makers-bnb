@@ -1,0 +1,65 @@
+CREATE TABLE users (
+	id SERIAL PRIMARY KEY,
+    name VARCHAR(50),
+    password VARCHAR(50));
+	email VARCHAR(100)
+);
+
+CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(50), email VARCHAR(100), password VARCHAR(250));
+
+CREATE TABLE spaces (
+	spaces_id INT GENERATED ALWAYS AS IDENTITY,
+    id INT,
+    space_name VARCHAR(255) NOT NULL,
+    space_description VARCHAR(255) NOT NULL,
+    price_per_night FLOAT,
+	created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(spaces_id),
+    CONSTRAINT fk_id
+      FOREIGN KEY(id) 
+	  REFERENCES users(id)
+);
+
+CREATE TABLE bookings (
+	bookings_id INT GENERATED ALWAYS AS IDENTITY,
+    spaces_id INT,
+    booking_from DATE,
+    booking_to DATE,
+    PRIMARY KEY(bookings_id),
+    CONSTRAINT fk_bookings_id
+      FOREIGN KEY(spaces_id) 
+	  REFERENCES spaces(spaces_id)
+);
+
+REATE TABLE available_dates (
+	bookings_id INT GENERATED ALWAYS AS IDENTITY,
+    spaces_id INT,
+    available_from DATE,
+    available_to DATE,
+    PRIMARY KEY(bookings_id),
+    CONSTRAINT fk_bookings_id
+      FOREIGN KEY(spaces_id) 
+	  REFERENCES spaces(spaces_id)
+);
+
+INSERT INTO bookings (spaces_id, available_from, available_to) VALUES ('1', '01/09/2021', '30/09/2021');
+INSERT INTO bookings (spaces_id, available_from, available_to) VALUES ('1', '01/12/2021', '30/12/2021');
+INSERT INTO spaces (space_name, space_description, price_per_night) VALUES ('A new Space', 'this is the description', '100');
+
+SELECT space_name, price_per_night, available_from, available_to FROM bookings INNER JOIN spaces ON (spaces.spaces_id = bookings.spaces_id);
+
+ALTER DATABASE bnbapp RENAME TO bnb;
+
+SELECT
+    pg_terminate_backend (pid)
+FROM
+    pg_stat_activity
+WHERE
+    datname = 'bnbapp';
+
+TRUNCATE spaces RESTART IDENTITY;
+
+ALTER TABLE bookings
+  RENAME TO available_dates;
+
+ALTER TABLE table_name RENAME column_name TO new_column_name;

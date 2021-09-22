@@ -4,13 +4,28 @@ require 'pg'
 class Spaces
 
     def self.create(name:, description:, price_per_night:)
-        connection = PG.connect(dbname: 'bnb', user: 'postgres', password: 'password')
-        new_space = connection.exec("INSERT INTO spaces (space_name, space_description, price_per_night) VALUES ('#{name}', '#{description}', '#{price_per_night}') RETURNING spaces_id;")
+        if ENV['ENVIRONMENT'] == "test"
+            connection = PG.connect(dbname:'bnb_test', user:'postgres', password:'password')
+        else
+            connection = PG.connect(dbname:'bnb', user:'postgres', password:'password')
+        end
+
+        #connection = PG.connect(dbname: 'bnb', user: 'postgres', password: 'password')
+        #new_space = connection.exec("INSERT INTO spaces (space_name, space_description, price_per_night) VALUES ('#{name}', '#{description}', '#{price_per_night}') RETURNING spaces_id;")
+        new_space = connection.exec_params("INSERT INTO spaces (space_name, space_description, price_per_night) VALUES ($1, $2, $3) RETURNING spaces_id, space_name, space_description, price_per_night;", [name, description, price_per_night])
+        
         new_space.values[0]
+        
     end
 
     def self.all
-        connection = PG.connect(dbname: 'bnb', user: 'postgres', password: 'password')
+        if ENV['ENVIRONMENT'] == "test"
+            connection = PG.connect(dbname:'bnb_test', user:'postgres', password:'password')
+        else
+            connection = PG.connect(dbname:'bnb', user:'postgres', password:'password')
+        end
+
+        #connection = PG.connect(dbname: 'bnb', user: 'postgres', password: 'password')
         result = connection.exec("SELECT * FROM spaces;")
 
         result.values
