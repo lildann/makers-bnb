@@ -1,17 +1,13 @@
 require 'spec_helper'
 
-require 'spec_helper'
-
-xfeature 'login' do
+feature 'login' do
   scenario 'user can login' do
+    User.create(name: 'John', email: 'test@email.com', password: 'test-password')
     visit('/login')
-    fill_in 'name', with: 'John'
     fill_in 'email', with: 'test@email.com'
-    fill_in 'password', with: 'test_password'
+    fill_in 'password', with: 'test-password'
     click_button 'Submit'
-    expect(page).to have_content 'Welcome'
+    expect(page).to have_content 'Welcome, John'
     expect(page.current_path).to eq '/spaces'
   end
 end
-
-# write feature test for unsuccessful login

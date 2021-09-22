@@ -9,7 +9,6 @@ class Bnb < Sinatra::Base
     register Sinatra::Reloader
   end
 
-
   get '/' do
     erb :index
   end
@@ -24,6 +23,15 @@ class Bnb < Sinatra::Base
     @user = User.find(id: session[:user_id])
     erb :spaces
   end
+
+  get '/login' do
+    erb :login
+  end
+
+  post '/users/session' do
+
+    redirect('/spaces')
+  end 
 
   run! if app_file == $0
 end
