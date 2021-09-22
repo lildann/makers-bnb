@@ -42,7 +42,11 @@ class Bnb < Sinatra::Base
     erb :spaces
   end
 
-
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = 'You are signed out'
+    redirect ('/')
+  end
 
   run! if app_file == $0
 end

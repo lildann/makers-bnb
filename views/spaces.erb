@@ -1,3 +1,11 @@
 <% if @user %>
   <h1>Welcome, <%= @user.name %></h1>
 <% end %>
+
+<form action="/sessions/destroy" method="post">
+  <input type="submit" value="Logout" />
+</form>
+
+<h2> 
+  <%= flash[:notice1]%>
+</h2>
