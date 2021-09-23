@@ -64,3 +64,15 @@ ALTER TABLE bookings
 
 ALTER TABLE bookings RENAME available_from TO booking_from;
 ALTER TABLE bookings RENAME available_to TO booking_to;
+ALTER TABLE bookings RENAME booking_to TO booking_date;
+
+ALTER TABLE bookings
+DROP COLUMN booking_from;
+
+SELECT
+  *
+FROM
+  available_dates
+WHERE
+      available_from >= '2021-09-15'
+  AND available_to <  '2021-09-15'

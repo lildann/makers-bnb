@@ -11,21 +11,24 @@ class Bookings
     # end
 
     connection = PG.connect(dbname:'bnb_test', user:'postgres', password:'password')
-    result = connection.exec("SELECT space_name, price_per_night, available_from, available_to FROM available_dates INNER JOIN spaces ON (spaces.spaces_id = available_dates.spaces_id);")
-    #connection.exec ("INSERT INTO bookings (spaces_id, available_from, available_to) VALUES ('1', '10/09/2021', '15/09/2021');")
+    result = connection.exec(
+      "SELECT spaces.spaces_id, available_from, available_to FROM available_dates INNER JOIN
+       spaces ON (spaces.spaces_id = available_dates.spaces_id) WHERE spaces.spaces_id = 1;")
     result.values
   end
 
-  def self.make_booking(space_id:, available_from:, available_to:)
+  def self.make_booking(space_id:, booking_date:)
     connection = PG.connect(dbname:'bnb_test', user:'postgres', password:'password')
-    result = connection.exec ("INSERT INTO bookings (spaces_id, booking_from, booking_to) VALUES ('#{space_id}', '#{available_from}', '#{available_to}') RETURNING booking_from, booking_to;")
+    result = connection.exec ("INSERT INTO bookings (spaces_id, booking_date) VALUES ('#{space_id}', '#{booking_date}') RETURNING booking_date;")
     #@from_date = result
     #@from_date = result[0]
     # from the database, any available spaces
   end
 
-  def confirm_booking
+  def confirm_booking(space_id:, booking_date:)
     # if user says this date, give me the acceptance message
+    connection = PG.connect(dbname:'bnb_test', user:'postgres', password:'password')
+    result = connection.exec("SELECT * FROM available_dates WHERE spaces_id = 1 AND available_from <= '#{booking_date}' AND available_to > '#{booking_date}';")
   end
 
   def unavailable?

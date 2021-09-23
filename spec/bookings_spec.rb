@@ -3,8 +3,8 @@ require 'bookings'
 describe Bookings do
 
   let(:space_id) {1}
-  let(:booking_from) {"10/09/2021"}
-  let(:booking_to) {"15/09/2021"}
+  let(:booking_date) {"10/09/2021"}
+  
   let(:description) {"this is the description"}
   let(:price_per_night) {100}
 
@@ -23,7 +23,8 @@ describe Bookings do
 
   it 'allows the user to book a space' do
     connection = PG.connect(dbname: 'bnb_test', user: 'postgres', password: 'password')
-    expect(result[0]).to include("booking_from" => "2021-09-10")
+    result = Bookings.make_booking(space_id: space_id, booking_date: booking_date)
+    expect(result[0]).to include("booking_date" => "2021-09-10")
     
   end
 
