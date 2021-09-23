@@ -1,7 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
-require './lib/spaces'
 require 'sinatra/flash'
+require './lib/spaces'
 require_relative './lib/user'
 
 class Bnb < Sinatra::Base
@@ -13,6 +13,34 @@ class Bnb < Sinatra::Base
   end
 
   get '/' do
+    erb :index
+  end
+
+  post '/users/new' do
+    user = User.create(name: params[:name], email: params[:email], password: params[:password])
+    session[:user_id] = user.id
+    redirect('/spaces')
+  end
+
+  get '/login' do
+    erb :login
+  end
+
+  post '/users/session' do
+    user = User.authenticate(email: params[:email], password: params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect('/spaces')
+    else
+      flash[:notice] = 'Incorrect email or password'
+      redirect('/login')
+    end
+  end 
+
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = 'You are signed out'
+    redirect ('/')
   end
 
   get '/spaces' do
@@ -35,34 +63,6 @@ class Bnb < Sinatra::Base
     )
     redirect('/spaces')
     erb :index
-  end
-
-  post '/users/new' do
-    user = User.create(name: params[:name], email: params[:email], password: params[:password])
-    session[:user_id] = user.id
-    redirect('/spaces')
-  end
-
-  get '/login' do
-    erb :login
-  end
-
-  post '/users/session' do
-    user = User.authenticate(email: params[:email], password: params[:password])
-    
-    if user
-      session[:user_id] = user.id
-      redirect('/spaces')
-    else
-      flash[:notice] = 'Incorrect email or password'
-      redirect('/login')
-    end
-  end 
-
-  post '/sessions/destroy' do
-    session.clear
-    flash[:notice] = 'You are signed out'
-    redirect ('/')
   end
 
   run! if app_file == $0
