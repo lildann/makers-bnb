@@ -44,30 +44,25 @@ So that I can still book a property which is not yet confirmed
 I can book a property which is pending confirmation 
 ```
 
-### PLAN FOR WEEK:
-- Independant study for CSS 
-- Switch pairs daily
 
-* MONDAY:
-  * User Stories
-  * MVC model
-  * Domain Modelling
-  * CRC cards
-  * MVP planning (deliver Wednesday)
-  * File preparation
-
-* TUESDAY:
-  * One pair work on User class - sign up / log in / database User Table ** Amanda and Lilly
-  * One pair work on Space class - spaces / spaces/new / database Spaces Tables ** David and Leah
-
-* WEDNESDAY: (Process Workshop 2pm)
-  * TBC
-
-* THURSDAY:
-  * TBC
-
-* FRIDAY 
-  * Morning: All work on CSS
+Instructions for Database Setup and Test Database Setup
+----
+* Connect to psql
+* Create the two databases using the psql command: 
+```
+CREATE DATABASE bnb;
+CREATE DATABASE bnb_test;
+```
+* Connect to each database using the pqsl command 
+```
+\c bnb;
+\c bnb_test;
+```
+* To setup the approriate tables, run the SQL script saved in the `db/migrations` folder in the given order (file 01_create_users_table.sql)
 
 
-### To set up the database
+### To run the Bnb app:
+
+```
+rackup -p 3000
+```
