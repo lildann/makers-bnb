@@ -34,7 +34,7 @@ class User
     else
       connection = PG.connect(dbname: 'bnb')
     end
-    result = result = connection.exec_params(
+    result = connection.exec_params(
       "SELECT * FROM users WHERE id = $1", [id]
     )
     User.new(
