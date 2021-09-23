@@ -2,14 +2,13 @@ require 'pg'
 
 class Bookings 
 
-  def self.available_dates()
-    # go to the database, send a a query to return any property that is available
-    # if ENV['ENVIRONMENT'] == "test"
-    #     connection = PG.connect(dbname:'bnb_test', user:'postgres', password:'password')
-    # else
-    #     connection = PG.connect(dbname:'bnb', user:'postgres', password:'password')
-    # end
+  def self.add_available_dates(spaces_id:, available_from:, available_to:)
+    connection = PG.connect(dbname:'bnb_test', user:'postgres', password:'password')
+    result = connection.exec("INSERT INTO available_dates (spaces_id, available_from, available_to) VALUES ('#{spaces_id}', '#{available_from}', '#{available_to}');")
+    "Dates Added"
+  end
 
+  def self.available_dates()
     connection = PG.connect(dbname:'bnb_test', user:'postgres', password:'password')
     result = connection.exec(
       "SELECT spaces.spaces_id, available_from, available_to FROM available_dates INNER JOIN
@@ -17,32 +16,43 @@ class Bookings
     result.values
   end
 
-  def self.make_booking(space_id:, booking_date:)
+  def self.make_booking(user_id, space_id, booking_date, accepted)
     connection = PG.connect(dbname:'bnb_test', user:'postgres', password:'password')
-    result = connection.exec ("INSERT INTO bookings (spaces_id, booking_date) VALUES ('#{space_id}', '#{booking_date}') RETURNING booking_date;")
-    #@from_date = result
-    #@from_date = result[0]
-    # from the database, any available spaces
+    result = connection.exec("INSERT INTO bookings (user_id, spaces_id, booking_date, accepted)
+     VALUES ('#{user_id}','#{space_id}','#{booking_date}','#{accepted}') RETURNING booking_date;")
+    return "This booking has been confirmed!"
   end
 
-  def self.confirm_booking(space_id:, booking_date:)
-    # if user says this date, give me the acceptance message
-    connection = PG.connect(dbname:'bnb_test', user:'postgres', password:'password')
-    result = connection.exec("SELECT available_from, available_to FROM available_dates WHERE spaces_id = 1 AND available_from <= '#{booking_date}' AND available_to > '#{booking_date}';")
-    result.values
-
-    if result.values == nil
-      return "This space is unavailable"
+  def self.do_booking(user_id:, space_id:, booking_date:)    
+    if self.check_available_dates(user_id, space_id, booking_date) == true
+      "Unavailable"      
+    elsif self.check_booking_dates(space_id, booking_date) == false
+      "Unavailable"
     else
-      return "This booking has been confirmed!"
+      self.make_booking(user_id, space_id, booking_date, TRUE)
     end
-
   end
 
-  def unavailable?
-
-    # if the space is unavailable, then send a message stopping the space from being picked
+  def self.check_booking_dates(space_id, booking_date)
+    connection = PG.connect(dbname:'bnb_test', user:'postgres', password:'password')
+    result = connection.exec("SELECT * FROM bookings WHERE spaces_id = 1 AND booking_date = '#{booking_date}' AND confirmed is NOT NULL;")
+    p result.values.empty?
+    result.values.empty?
   end
-
   
+  # if user says this date, give me the acceptance message
+  def self.check_available_dates(user_id, space_id, booking_date)
+    connection = PG.connect(dbname:'bnb_test', user:'postgres', password:'password')
+    result = connection.exec("SELECT available_from, available_to FROM available_dates WHERE spaces_id = 1 AND available_from <= '#{booking_date}' AND available_to >= '#{booking_date}';")
+    
+    p result.values.empty?
+    result.values.empty?
+  end
+
+  def self.update_booking(space_id:)
+    connection = PG.connect(dbname:'bnb_test', user:'postgres', password:'password')
+    result = connection.exec("UPDATE bookings SET confirmed = TRUE WHERE bookings_id = '#{space_id}';")
+    #send confirmation message to user
+    "Booking now confirmed"
+  end 
 end

@@ -42,7 +42,7 @@ REATE TABLE available_dates (
 	  REFERENCES spaces(spaces_id)
 );
 
-INSERT INTO bookings (spaces_id, available_from, available_to) VALUES ('1', '01/09/2021', '30/09/2021');
+INSERT INTO available_dates (spaces_id, available_from, available_to) VALUES ('1', '01/09/2021', '30/09/2021');
 INSERT INTO bookings (spaces_id, available_from, available_to) VALUES ('1', '01/12/2021', '30/12/2021');
 INSERT INTO spaces (space_name, space_description, price_per_night) VALUES ('A new Space', 'this is the description', '100');
 
@@ -71,3 +71,30 @@ DROP COLUMN booking_from;
 
 SELECT * FROM available_dates WHERE spaces_id = 1 AND available_from <= '2021-09-10' AND available_to > '2021-09-10';
 SELECT * FROM available_dates WHERE spaces_id = 1 AND available_from <= '2021-11-10' AND available_to > '2021-11-10';
+
+ALTER TABLE bookings ADD COLUMN accepted BOOLEAN;
+ALTER TABLE bookings ADD COLUMN confirmed BOOLEAN;
+ALTER TABLE bookings ADD COLUMN confirmed BOOLEAN;
+
+SELECT * FROM bookings WHERE spaces_id = 1 AND booking_date = '2021-09-10' AND confirmed is NULL;
+SELECT * FROM bookings WHERE spaces_id = 1 AND booking_date = '2021-09-10' AND confirmed is NOT NULL;
+
+
+CREATE TABLE bookings (
+	bookings_id INT GENERATED ALWAYS AS IDENTITY,
+    spaces_id INT,
+    user_id INT,
+    booking_date DATE,
+    accepted BOOLEAN,
+    confirmed BOOLEAN,
+    PRIMARY KEY(bookings_id),
+    CONSTRAINT fk_bookings_id
+      FOREIGN KEY(spaces_id) 
+	  REFERENCES spaces(spaces_id)
+);
+
+SELECT * FROM available_dates WHERE available_from <= '2021-10-15' AND available_to >= '2021-10-15';
+
+SELECT * FROM bookings WHERE
+
+UPDATE bookings SET confirmed = TRUE WHERE bookings_id = 7;
