@@ -25,7 +25,13 @@ describe Bookings do
     connection = PG.connect(dbname: 'bnb_test', user: 'postgres', password: 'password')
     result = Bookings.make_booking(space_id: space_id, booking_date: booking_date)
     expect(result[0]).to include("booking_date" => "2021-09-10")
-    
+  end
+
+  it 'checks to see if the space is available for booking' do
+    connection = PG.connect(dbname: 'bnb_test', user: 'postgres', password: 'password')
+    result = Bookings.confirm_booking(space_id: space_id, booking_date: booking_date)
+
+    expect(result).to eq "This booking has been confirmed!"
   end
 
   it 'stops the user booking a space if it is unavailable' do

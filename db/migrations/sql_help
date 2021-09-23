@@ -69,10 +69,5 @@ ALTER TABLE bookings RENAME booking_to TO booking_date;
 ALTER TABLE bookings
 DROP COLUMN booking_from;
 
-SELECT
-  *
-FROM
-  available_dates
-WHERE
-      available_from >= '2021-09-15'
-  AND available_to <  '2021-09-15'
+SELECT * FROM available_dates WHERE spaces_id = 1 AND available_from <= '2021-09-10' AND available_to > '2021-09-10';
+SELECT * FROM available_dates WHERE spaces_id = 1 AND available_from <= '2021-11-10' AND available_to > '2021-11-10';

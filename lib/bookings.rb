@@ -25,13 +25,22 @@ class Bookings
     # from the database, any available spaces
   end
 
-  def confirm_booking(space_id:, booking_date:)
+  def self.confirm_booking(space_id:, booking_date:)
     # if user says this date, give me the acceptance message
     connection = PG.connect(dbname:'bnb_test', user:'postgres', password:'password')
-    result = connection.exec("SELECT * FROM available_dates WHERE spaces_id = 1 AND available_from <= '#{booking_date}' AND available_to > '#{booking_date}';")
+    result = connection.exec("SELECT available_from, available_to FROM available_dates WHERE spaces_id = 1 AND available_from <= '#{booking_date}' AND available_to > '#{booking_date}';")
+    result.values
+
+    if result.values == nil
+      return "This space is unavailable"
+    else
+      return "This booking has been confirmed!"
+    end
+
   end
 
   def unavailable?
+
     # if the space is unavailable, then send a message stopping the space from being picked
   end
 
