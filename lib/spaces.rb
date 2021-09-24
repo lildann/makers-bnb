@@ -11,7 +11,7 @@ class Spaces
 
     def self.all
         connection = PG.connect(dbname: 'bnb')
-        result = connection.exec("SELECT * FROM spaces;")
+        result = connection.exec("SELECT space_name, space_description, price_per_night FROM spaces;")
 
         result.values
     end

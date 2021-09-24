@@ -55,14 +55,13 @@ class Bnb < Sinatra::Base
 
   post '/spaces/new' do
     p "----#{params}-----"
-    
     new_space = Spaces.create(
       name: params[:name],
       description: params[:description],
       price_per_night: params[:price_per_night]
     )
+    flash[:notice] = 'Please enter details' if '#{name}'.empty?
     redirect('/spaces')
-    erb :index
   end
 
   run! if app_file == $0

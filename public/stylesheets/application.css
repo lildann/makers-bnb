@@ -1,5 +1,3 @@
-
-
 h1 {
   line-height: 1.6em;
   font-family: 'Montserrat';
@@ -8,17 +6,56 @@ h1 {
 
 body
 {
-  background-image:url('img/off_the_grid_house_airbnb.png');
+  background-image: url('../img/off_the_grid_house_airbnb.png');
   text-align: center;
 	line-height: 1.6em;
   font-family: 'Montserrat';
   font-size: large;
-  color: #FF5F1F
+  color: black;
 }
 
 input {
   border: 2px solid whitesmoke;
   border-radius: 4px;
+}
+
+.logo {
+  position:fixed;
+  left: 10px;
+  padding-left: 10px;
+}
+
+.logout {
+  position:fixed;
+  right: 10px;
+  top: 5px;
+  padding-left: 100px;
+  padding-right: 10px;
+}
+
+h2 {
+color: black
+}
+
+.list {
+  position:fixed;
+  right: 70px;
+  top: 5px;
+  padding-left: 100px;
+  padding-right: 10px;
+}
+.container space {
+  margin: auto;
+}
+
+.text-block {
+  background-color: white;
+  text-align: center;
+  padding-left: 100px;
+  padding-right: 100px;
+  width: 250px;
+  margin: auto;
+
 }
 
 /* 

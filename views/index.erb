@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html>
 <h1>Sign up</h1>
 <form action='/users/new'  method='post'>
   <input type="text" name="name" placeholder="Name"><br>
@@ -11,6 +13,14 @@ Already a member?
   <input type="submit" value="Log in" >
 </form>
 
+<div class= "container">
+<div class= "logout">
+<form action="/spaces" method="get">
+  <input type="submit" value="Places to stay" />
+</form>
+</div>
+
 <h2> 
   <%= flash[:notice]%>
 </h2>
+</html>
