@@ -40,7 +40,7 @@ class Bnb < Sinatra::Base
   post '/sessions/destroy' do
     session.clear
     flash[:notice] = 'You are signed out'
-    redirect ('/')
+    redirect ('/login')
   end
 
   get '/spaces' do

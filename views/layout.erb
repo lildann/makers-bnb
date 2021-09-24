@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/application.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <title>MAKERS BNB</title>
+    <div class="logo"> 
+      <img src='img/makers-logo-lockupv-black.png' alt="Makers logo"; > 
+    </div> 
+  </head>
+
+  <body>
+    <div class="navigation">
+      <%# <a href="/">register</a>
+      <a href="/login">log in</a> %>
+        <br>
+      <a href="/spaces">places to stay</a>
+      <%# <a href="/spaces/new">list your place</a> %>
+    </div>
+    <%= yield %>
+  </body>
+  <style>
+  body {
+    background-image: url('img/off_the_grid_house_airbnb.png');
+    text-align: center;
+  }
+  </style>
+</html>

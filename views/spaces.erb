@@ -2,7 +2,11 @@
   <input type="submit" value="Logout" />
 </form>
 
-<a class="button" href="/spaces/new">Spaces</a>
+<form action="/spaces/new" method="get">
+  <input type="submit" value="List your space" />
+</form>
+
+
 <% if @user %>
   <h1>Welcome, <%= @user.name %></h1>
 <% end %>
