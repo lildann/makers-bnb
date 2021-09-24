@@ -60,7 +60,9 @@ class Bnb < Sinatra::Base
       description: params[:description],
       price_per_night: params[:price_per_night]
     )
-    flash[:notice] = 'Please enter details' if '#{name}'.empty?
+    if params[:name].nil? 
+      flash[:notice] = 'Please enter details' 
+    end
     redirect('/spaces')
   end
 

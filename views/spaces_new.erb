@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html>
 <body>
+<h1>Tell us about your space</h1>
 <form action='/spaces/new' method='post'>
-<br>
-  <b>Name: </b><input type='text' name='name' placeholder="Space name">
-<br>
-<br>
-  <b>Description: </b><input type='text' name='description' placeholder="Description">
+  <b>What's it called? </b><input type='text' name='name' placeholder="Space name">
 <br>
 <br>
-  <b>Price per Night: </b><input type='text' name='price_per_night' placeholder="Price per night">
+  <b>What's it like? </b><input type='text' name='description' placeholder="Description">
+<br>
+<br>
+  <b>How much per night? </b><input type='text' name='price_per_night' placeholder="Price per night">
 <br>
 <br>
   <input class='button' type='submit' value='List your space'>
 </form>
-
 
 <div class= "container">
 <div class= "logout">
@@ -35,11 +34,5 @@
   <%= flash[:notice]%>
 </h2>
 
-   <style>
-     body {
-       background-image: url('img/off_the_grid_house_airbnb.png');
-       text-align: center;
-     }
-     </style>
-     </body> 
-     </html> 
+</body> 
+</html> 
