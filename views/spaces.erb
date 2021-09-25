@@ -9,7 +9,12 @@
 
 <ul>
 <% @spaces.each do |space| %>
-  <li><%= space %></li>
+  <li><%= space %><a href="/make_reservation/<%= space[0] %>">Book this Space</a></li>
   <% end %>
 </ul>
+
+<a class="button" href="/spaces/new">List a Space</a>
+
+
+
 

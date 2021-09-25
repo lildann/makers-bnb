@@ -1,0 +1,24 @@
+<form action='/make_reservation' method='post'>
+<a class="button" href="/spaces">Spaces</a>
+<a class="button" href="/">Sign Out</a>
+
+<h3>Make Reservation</h3>
+<p>/post request with redirect</p>
+<p>self.do_booking(user_id:, space_id:, booking_date:, booking_user:) </p>
+
+
+<h2>Available Dates</h2>
+<ul>
+<% @check_dates.each do |date| %>
+<li><%= date %> </li>
+<form action="/make_reservation" method='post'>
+  <input type="hidden" id="spaces_id" name="spaces_id" value="<%= date[1] %>">
+  <input type='date' id='booking_date' name='booking_date'>
+  <input class='button' type='submit' value='Make Reservation!'>
+</form>
+
+<% end %>
+</ul>
+  
+</form>
+
