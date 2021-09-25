@@ -20,14 +20,14 @@ describe Bookings do
 
   context 'checking all available dates' do
     it '.available_dates' do
-      result = Bookings.available_dates
+      result = Bookings.available_dates(spaces_id: space_id)
       expect(result[0]).to include "2021-09-01"
     end
   end
   
   it '.make_booking' do
     result = Bookings.make_booking(user_id, space_id, booking_date, TRUE)
-    expect(result).to eq "This booking has been confirmed!"
+    expect(result).to eq "This booking has been accepted!"
   end
 
   it '.add_available_dates' do
