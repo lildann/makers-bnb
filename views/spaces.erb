@@ -1,17 +1,42 @@
-<form action="/sessions/destroy" method="post">
-  <input type="submit" value="Logout" />
-</form>
+<!DOCTYPE html>
+<html>
 
-<a class="button" href="/spaces/new">Spaces</a>
+<div class= "container">
+<div class= "logout">
+<form align="right" action="/sessions/destroy" method="post">
+  <label class="logout">
+    <input type="submit" value="Logout" />
+  </label>
+</form>
+</div>
+<div class= "container">
+<div class= "list">
+<form action="/spaces/new" method="get">
+  <input type="submit" value="List your space" />
+</form>
+</div>
+
 <% if @user %>
   <h1>Welcome, <%= @user.name %></h1>
 <% end %>
 
-<ul>
-<% @spaces.each do |space| %>
-  <li><%= space %><a href="/make_reservation/<%= space[0] %>">Book this Space</a></li>
-  <% end %>
+<h2>Places to stay</h2>
+
 </ul>
+  <% @spaces.each do |space| %>
+    <div class= "container">
+      <div class="text-block"> 
+      <br><%= space[0] %>
+      <br> <%= space[1] %>
+      <br> £<%= space[2] %> per night
+      <br> <a href="/make_reservation/<%= space[0] %>">Book this Space</a>
+    </div>
+    </div>
+    <% end %>
+<ul>      
+</html> 
+
+  
 
 <a class="button" href="/spaces/new">List a Space</a>
 

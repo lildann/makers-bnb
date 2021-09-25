@@ -1,6 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>Tell us about your space</h1>
 <form action='/spaces/new' method='post'>
-  <input type='text' name='name' placeholder="Space name"><b>Name</b> 
-  <input type='text' name='description' placeholder="Description"><b>Description</b>
-  <input type='text' name='price_per_night' placeholder="Price per night"><b>Price Per Night</b>
-  <input class='button' type='submit' value='New space'>
+  <b>What's it called? </b><input type='text' name='name' placeholder="Space name">
+<br>
+<br>
+  <b>What's it like? </b><input type='text' name='description' placeholder="Description">
+<br>
+<br>
+  <b>How much per night? </b><input type='text' name='price_per_night' placeholder="Price per night">
+<br>
+<br>
+  <input class='button' type='submit' value='List your space'>
 </form>
+
+<div class= "container">
+<div class= "logout">
+<form align="right" action="/sessions/destroy" method="post">
+<label class="logout">
+  <input type="submit" value="Logout" />
+</label>
+</form>
+</div>
+<div class= "container">
+<div class= "list">
+<form action="/spaces" method="get">
+  <input type="submit" value="Places to stay"/>
+</form>
+</div>
+
+<h2> 
+  <%= flash[:notice]%>
+</h2>
+
+</body> 
+</html> 

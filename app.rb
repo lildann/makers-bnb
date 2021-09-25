@@ -79,7 +79,6 @@ class Bnb < Sinatra::Base
 
   post '/users/session' do
     user = User.authenticate(email: params[:email], password: params[:password])
-    
     if user
       session[:user_id] = user.id
       redirect('/spaces')
@@ -93,6 +92,8 @@ class Bnb < Sinatra::Base
     session.clear
     flash[:notice] = 'You are signed out'
     redirect ('/')
+  end
+  
   get 'spaces/:spaces_id' do
     #show a calender
     #Request to book
@@ -115,6 +116,30 @@ class Bnb < Sinatra::Base
   get '/requests/confirm' do
     #confirm requests
     erb :request_confirm
+    redirect ('/login')
+  end
+
+  get '/spaces' do
+    @user = User.find(id: session[:user_id])
+    @spaces = Spaces.all
+    erb :spaces
+  end
+
+  get '/spaces/new' do
+    erb :spaces_new
+  end
+
+  post '/spaces/new' do
+    p "----#{params}-----"
+    new_space = Spaces.create(
+      name: params[:name],
+      description: params[:description],
+      price_per_night: params[:price_per_night]
+    )
+    if params[:name].nil? 
+      flash[:notice] = 'Please enter details' 
+    end
+    redirect('/spaces')
   end
 
   get '/booking_confirmation' do

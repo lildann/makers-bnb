@@ -1,0 +1,62 @@
+h1 {
+  line-height: 1.6em;
+  font-family: 'Montserrat';
+  color: #FF5F1F
+}
+
+body
+{
+  text-align: center;
+	line-height: 1.6em;
+  font-family: 'Montserrat';
+  font-size: large;
+  color: black;
+}
+
+input {
+  border: 2px solid whitesmoke;
+  border-radius: 4px;
+  font-size: 13px;
+  color: grey;
+}
+
+.logo {
+  position:fixed;
+  left: 10px;
+  padding-left: 10px;
+}
+
+.logout {
+  position:fixed;
+  right: 10px;
+  top: 5px;
+  padding-left: 100px;
+  padding-right: 10px;
+}
+
+h2 {
+color: black
+}
+
+.list {
+  position:fixed;
+  right: 70px;
+  top: 5px;
+  padding-left: 100px;
+  padding-right: 10px;
+}
+
+.container space {
+  margin: auto;
+  padding-bottom: 100px;
+}
+
+.text-block {
+  background-color: white;
+  text-align: center;
+  padding-left: 100px;
+  padding-right: 100px;
+  width: 250px;
+  margin: auto;
+  border
+}

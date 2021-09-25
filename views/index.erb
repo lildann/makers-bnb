@@ -1,18 +1,33 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 Sign up
+=======
+<!DOCTYPE html>
+<html>
+<h1>Sign up</h1>
+>>>>>>> 375fcfac7730309e2881fb1cf17a1039b531e9a8
 <form action='/users/new'  method='post'>
   <input type="text" name="name" placeholder="Name"><br>
   <input type="email" name="email" placeholder="Email">
   <input type="password" name="password" placeholder="Password">
   <input type="submit" value="Sign up" >
 </form>
+<br>
 Already a member?
 <form action='/login'  method='get'>
   <input type="submit" value="Log in" >
 </form>
 
+<div class= "container">
+<div class= "logout">
+<form action="/spaces" method="get">
+  <input type="submit" value="Places to stay" />
+</form>
+</div>
+
 <h2> 
   <%= flash[:notice]%>
+<<<<<<< HEAD
 =======
 Sign up
 <form action='/users/new'  method='post'>
@@ -30,3 +45,7 @@ Already a member?
   <%= flash[:notice]%>
 >>>>>>> date_functionality
 </h2>
+=======
+</h2>
+</html>
+>>>>>>> 375fcfac7730309e2881fb1cf17a1039b531e9a8
